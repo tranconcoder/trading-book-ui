@@ -8,4 +8,4 @@ stages:
   - deploy
 
 variables:
-  GITHUB_REPO: "aliconcon-ecommerce-ui"
+  GITHUB_REPO: "trading-book-ui"
