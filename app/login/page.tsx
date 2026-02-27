@@ -18,13 +18,9 @@ export default function LoginPage() {
       className={`${outfit.className} h-screen w-full flex overflow-hidden bg-white text-slate-900 select-none`}
     >
       {/* Left Side: Branding & Animated Illustration */}
-      <div className="hidden lg:flex lg:w-3/5 bg-emerald-50 flex-col justify-between p-12 relative overflow-hidden h-full">
-        {/* Decorative Background Elements */}
-        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-100 rounded-full blur-[120px] opacity-60 animate-pulse" />
-        <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] bg-emerald-200/40 rounded-full blur-[100px] opacity-40" />
-
+      <div className="hidden lg:flex lg:w-3/5 bg-[#ffffff] flex-col justify-between p-12 relative overflow-hidden h-full border-r border-slate-50">
         {/* Branding */}
-        <div className="relative z-20">
+        <div className="relative z-20 animate-slide-in-left">
           <div className="flex items-center gap-3 mb-10 translate-x-1">
             <div className="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-200 rotate-3 transition-transform hover:rotate-0 duration-500">
               <svg
@@ -44,7 +40,7 @@ export default function LoginPage() {
             </span>
           </div>
 
-          <div className="max-w-lg space-y-6">
+          <div className="max-w-lg space-y-6 animate-fade-in-up delay-100">
             <h1 className="text-6xl font-black text-emerald-950 leading-[1.1] tracking-tighter">
               Giao dịch <br />
               <span className="text-emerald-600">An toàn</span> & <br />
@@ -57,10 +53,10 @@ export default function LoginPage() {
         </div>
 
         {/* Character Illustration with floating security items */}
-        <div className="relative flex-grow flex items-center justify-center">
-          <div className="relative w-full h-full max-w-2xl max-h-[550px] animate-float mix-blend-multiply">
+        <div className="relative flex-grow flex items-center justify-center animate-scale-in delay-300">
+          <div className="relative w-full h-full max-w-2xl max-h-[550px] animate-float bg-white">
             <Image
-              src="/images/security-illustration.png"
+              src="/images/security-illustration-ultra.png"
               alt="Security Login Illustration"
               fill
               className="object-contain"
@@ -69,7 +65,7 @@ export default function LoginPage() {
           </div>
 
           {/* Manual Floating Security Elements (SVGs) - Kept for extra premium feel */}
-          <div className="absolute top-[20%] right-[15%] w-14 h-14 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl flex items-center justify-center text-emerald-500 animate-float-slow z-30">
+          <div className="absolute top-[20%] right-[15%] w-14 h-14 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl flex items-center justify-center text-emerald-500 animate-float-slow z-30 border border-emerald-50">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2.5">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
               <path d="M7 11V7a5 5 0 0 1 10 0v4" />
@@ -91,7 +87,7 @@ export default function LoginPage() {
           </div>
 
         {/* Footer info */}
-        <div className="relative z-10 flex items-center justify-between font-bold text-xs uppercase tracking-widest text-emerald-800/40">
+        <div className="relative z-10 flex items-center justify-between font-bold text-xs uppercase tracking-widest text-emerald-800/40 animate-fade-in-up delay-500">
           <div className="flex items-center gap-4">
             <span>VLUTE Students</span>
             <div className="w-1.5 h-1.5 bg-emerald-300 rounded-full" />
@@ -105,8 +101,8 @@ export default function LoginPage() {
       </div>
 
       {/* Right Side: Login Form */}
-      <div className="w-full lg:w-2/5 flex flex-col items-center justify-center p-8 bg-white h-full">
-        <div className="w-full max-w-md space-y-12">
+      <div className="w-full lg:w-2/5 flex flex-col items-center justify-center p-8 bg-[#ffffff] h-full">
+        <div className="w-full max-w-md space-y-12 animate-fade-in-up">
           <div className="space-y-4">
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
               Sẵn sàng để <br />
@@ -117,7 +113,7 @@ export default function LoginPage() {
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 animate-fade-in-up delay-200">
             <button
               onClick={handleGoogleLogin}
               className="w-full h-16 flex items-center justify-center gap-4 bg-white border-[3px] border-slate-50 rounded-2xl font-bold text-slate-700 transition-all duration-500 hover:border-emerald-500 hover:bg-emerald-50/20 hover:scale-[1.02] shadow-sm hover:shadow-2xl hover:shadow-emerald-100 group"
@@ -134,7 +130,7 @@ export default function LoginPage() {
             </button>
           </div>
 
-          <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100/50 flex items-start gap-4">
+          <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100/50 flex items-start gap-4 animate-fade-in-up delay-500">
             <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex-shrink-0 flex items-center justify-center text-emerald-500">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01" />
