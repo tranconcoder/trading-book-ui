@@ -1,6 +1,9 @@
 import axios from "axios";
 import appConfig from "../configs/app.config";
 
-export const axiosIntance = axios.create({
-  baseURL: appConfig,
+const axiosInstance = axios.create({
+  baseURL: appConfig.serverUrl,
+  withCredentials: true,
 });
+
+export default axiosInstance;
