@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { Outfit } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export default function LoginPage() {
@@ -15,7 +15,7 @@ export default function LoginPage() {
 
   return (
     <div
-      className={`${outfit.className} h-screen w-full flex overflow-hidden bg-white text-slate-900 select-none`}
+      className={`${beVietnamPro.className} h-screen w-full flex overflow-hidden bg-white text-slate-900 select-none`}
     >
       {/* Left Side: Branding & Animated Illustration */}
       <div className="hidden lg:flex lg:w-3/5 bg-[#ffffff] flex-col justify-between p-12 relative overflow-hidden h-full border-r border-slate-50">
