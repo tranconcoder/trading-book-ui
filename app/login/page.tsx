@@ -101,7 +101,10 @@ export default function LoginPage() {
       </div>
 
       {/* Right Side: Login Form */}
-      <div className="w-full lg:w-2/5 flex flex-col items-center justify-center p-8 bg-[#ffffff] h-full">
+      <div className="w-full lg:w-2/5 flex flex-col items-center justify-center p-8 bg-gradient-to-br from-emerald-50/80 via-slate-50 to-teal-50/60 h-full relative overflow-hidden">
+        {/* Subtle decorative orb */}
+        <div className="absolute -top-32 -right-32 w-64 h-64 bg-emerald-100/40 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-teal-100/30 rounded-full blur-3xl" />
         <div className="w-full max-w-md space-y-12 animate-fade-in-up">
           <div className="space-y-4">
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
@@ -116,7 +119,7 @@ export default function LoginPage() {
           <div className="space-y-6 animate-fade-in-up delay-200">
             <button
               onClick={handleGoogleLogin}
-              className="w-full h-16 flex items-center justify-center gap-4 bg-white border-[3px] border-slate-50 rounded-2xl font-bold text-slate-700 transition-all duration-500 hover:border-emerald-500 hover:bg-emerald-50/20 hover:scale-[1.02] shadow-sm hover:shadow-2xl hover:shadow-emerald-100 group"
+              className="w-full h-16 flex items-center justify-center gap-4 bg-white border-[3px] border-emerald-100/60 rounded-2xl font-bold text-slate-700 transition-all duration-500 hover:border-emerald-500 hover:bg-white hover:scale-[1.02] shadow-lg shadow-emerald-100/30 hover:shadow-2xl hover:shadow-emerald-200/40 group"
             >
               <div className="relative w-7 h-7 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
                 <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +133,7 @@ export default function LoginPage() {
             </button>
           </div>
 
-          <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100/50 flex items-start gap-4 animate-fade-in-up delay-500">
+          <div className="p-6 bg-white/70 backdrop-blur-sm rounded-3xl border border-emerald-100/40 flex items-start gap-4 animate-fade-in-up delay-500 shadow-sm">
             <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex-shrink-0 flex items-center justify-center text-emerald-500">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 9v4" />
