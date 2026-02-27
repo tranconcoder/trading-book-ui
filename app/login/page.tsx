@@ -42,12 +42,12 @@ export default function LoginPage() {
 
           <div className="max-w-lg space-y-6 animate-fade-in-up delay-100">
             <h1 className="text-6xl font-black text-emerald-950 leading-[1.1] tracking-tighter">
-              Giao dịch <br />
-              <span className="text-emerald-600">An toàn</span> & <br />
-              <span className="text-emerald-400">Minh bạch.</span>
+              Mua bán <br />
+              <span className="text-emerald-600">Sách cũ</span> & <br />
+              <span className="text-emerald-400">Giáo trình.</span>
             </h1>
             <p className="text-xl text-emerald-900/70 font-medium leading-relaxed max-w-sm">
-              Nền tảng quản lý danh mục tinh gọn nhất cho sinh viên VLUTE.
+              Nền tảng trao đổi giáo trình tinh gọn nhất cho sinh viên VLUTE.
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function LoginPage() {
           <div className="relative w-full h-full max-w-2xl max-h-[550px] animate-float bg-white">
             <Image
               src="/images/security-illustration-ultra.png"
-              alt="Security Login Illustration"
+              alt="Trading Books Illustration"
               fill
               className="object-contain"
               priority
@@ -106,10 +106,10 @@ export default function LoginPage() {
           <div className="space-y-4">
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
               Sẵn sàng để <br />
-              <span className="italic text-emerald-600">Đầu tư?</span>
+              <span className="italic text-emerald-600">Mua bán?</span>
             </h2>
             <p className="text-lg text-slate-400 font-medium leading-relaxed">
-              Truy cập bằng tài khoản tập trung để bắt đầu hành trình của bạn.
+              Truy cập bằng tài khoản tập trung để bắt đầu trao đổi sách.
             </p>
           </div>
 
@@ -139,7 +139,7 @@ export default function LoginPage() {
             <div className="space-y-1">
               <p className="font-bold text-slate-800 text-sm">Xác thực tập trung</p>
               <p className="text-slate-500 text-xs font-medium leading-[1.6]">
-                Dành riêng cho sinh viên học viện. Đăng nhập để sử dụng các công cụ giao dịch phân tích cao cấp.
+                Dành riêng cho sinh viên học viện. Đăng nhập để kết nối và trao đổi giáo trình với bạn bè.
               </p>
             </div>
           </div>
