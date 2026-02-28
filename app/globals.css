@@ -10,16 +10,13 @@
   --color-foreground: var(--foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Dark mode is disabled for now to ensure theme consistency with the glassmorphism design */
 
+html,
 body {
-  background: var(--background);
+  background-color: #ffffff !important;
   color: var(--foreground);
+  min-h-screen: 100vh;
 }
 
 @keyframes float {

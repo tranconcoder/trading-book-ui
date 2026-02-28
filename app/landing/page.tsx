@@ -1,7 +1,6 @@
 "use client";
 
 import { Be_Vietnam_Pro } from "next/font/google";
-import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import StatsSection from "./components/StatsSection";
 import FeaturesSection from "./components/FeaturesSection";
@@ -17,7 +16,6 @@ const beVietnamPro = Be_Vietnam_Pro({
 export default function LandingPage() {
   return (
     <div className={`${beVietnamPro.className} min-h-screen bg-white text-slate-900 overflow-x-hidden`}>
-      <Navbar />
       <HeroSection />
       <StatsSection />
       <FeaturesSection />

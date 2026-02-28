@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.11.2",
     "@types/axios": "^0.14.4",
     "axios": "^1.13.5",
     "next": "16.1.6",

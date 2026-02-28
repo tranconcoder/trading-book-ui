@@ -17,7 +17,7 @@ export default function DashboardLayout({
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   return (
-    <div className={`${beVietnamPro.className} flex h-screen bg-slate-50 text-slate-900`}>
+    <div className={`${beVietnamPro.className} flex h-[calc(100vh-5rem)] bg-slate-50 text-slate-900`}>
       <Sidebar
         collapsed={sidebarCollapsed}
         onToggle={() => setSidebarCollapsed((prev) => !prev)}
