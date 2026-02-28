@@ -54,7 +54,7 @@ export default function LoginPage() {
         <div className="relative flex-grow flex items-center justify-center animate-scale-in delay-300">
           <div className="relative w-full h-full max-w-2xl max-h-[550px] animate-float bg-white">
             <Image
-              src="/images/security-illustration-ultra.png"
+              src="/images/student-book-illustration.png"
               alt="Trading Books Illustration"
               fill
               className="object-contain"
@@ -65,8 +65,8 @@ export default function LoginPage() {
           {/* Manual Floating Security Elements (SVGs) - Kept for extra premium feel */}
           <div className="absolute top-[20%] right-[15%] w-14 h-14 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl flex items-center justify-center text-emerald-50 animate-float-slow z-30 border border-emerald-50 overflow-hidden">
             <Image
-              src="/icons/login/lock.svg"
-              alt="Lock Icon"
+              src="/icons/login/book.svg"
+              alt="Book Icon"
               width={28}
               height={28}
             />
@@ -74,8 +74,8 @@ export default function LoginPage() {
 
             <div className="absolute bottom-[20%] left-[5%] w-14 h-14 bg-emerald-600 rounded-full shadow-emerald-200 shadow-2xl flex items-center justify-center text-white animate-float-reverse overflow-hidden">
               <Image
-                src="/icons/login/shield.svg"
-                alt="Shield Icon"
+                src="/icons/login/sparkles.svg"
+                alt="Sparkles Icon"
                 width={28}
                 height={28}
               />
@@ -83,8 +83,8 @@ export default function LoginPage() {
 
             <div className="absolute top-[40%] left-[-5%] w-12 h-12 bg-emerald-400 rounded-xl shadow-lg flex items-center justify-center text-white animate-float-slow overflow-hidden">
               <Image
-                src="/icons/login/user.svg"
-                alt="User Icon"
+                src="/icons/login/shopping-bag.svg"
+                alt="Shopping Bag Icon"
                 width={24}
                 height={24}
               />
@@ -100,7 +100,7 @@ export default function LoginPage() {
           </div>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-            <span>Hệ thống bảo mật</span>
+            <span>Tiết kiệm & Chia sẻ</span>
           </div>
         </div>
       </div>
@@ -141,14 +141,14 @@ export default function LoginPage() {
           <div className="p-6 bg-white/70 backdrop-blur-sm rounded-3xl border border-emerald-100/40 flex items-start gap-4 animate-fade-in-up delay-500 shadow-sm">
             <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex-shrink-0 flex items-center justify-center text-emerald-500 overflow-hidden">
               <Image
-                src="/icons/login/alert.svg"
-                alt="Alert Icon"
+                src="/icons/login/book.svg"
+                alt="Book Info Icon"
                 width={22}
                 height={22}
               />
             </div>
             <div className="space-y-1">
-              <p className="font-bold text-slate-800 text-sm">Xác thực tập trung</p>
+              <p className="font-bold text-slate-800 text-sm">Chợ sách cũ VLUTE</p>
               <p className="text-slate-500 text-xs font-medium leading-[1.6]">
                 Dành riêng cho sinh viên học viện. Đăng nhập để kết nối và trao đổi giáo trình với bạn bè.
               </p>

@@ -15,9 +15,25 @@ function LoginFailContent() {
   const searchParams = useSearchParams();
   const errorCode = searchParams.get("error") ?? "";
   const rawMessage = searchParams.get("message") ?? "";
-  const errorMessage = rawMessage
-    ? atob(rawMessage)
-    : "Quá trình xác thực bằng Google không thành công. Vui lòng thử lại.";
+  let errorMessage = "Quá trình xác thực bằng Google không thành công. Vui lòng thử lại.";
+
+  if (rawMessage) {
+    try {
+      // Decode Base64 to a binary string
+      const binaryString = atob(rawMessage);
+      // Convert binary string to a byte array (Uint8Array)
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      // Decode the UTF-8 bytes into a proper string
+      errorMessage = new TextDecoder().decode(bytes);
+    } catch (e) {
+      console.error("Base64 decoding failed:", e);
+      // Fallback if the string is not valid Base64
+      errorMessage = rawMessage;
+    }
+  }
 
   return (
     <div
