@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Be_Vietnam_Pro } from "next/font/google";
+import { authConfig } from "@/common/configs";
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
@@ -10,7 +12,7 @@ const beVietnamPro = Be_Vietnam_Pro({
 
 export default function LoginPage() {
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/google";
+    window.location.href = authConfig.googleOauth.loginUrl;
   };
 
   return (
@@ -21,24 +23,20 @@ export default function LoginPage() {
       <div className="hidden lg:flex lg:w-3/5 bg-[#ffffff] flex-col justify-between p-12 relative overflow-hidden h-full border-r border-slate-50">
         {/* Branding */}
         <div className="relative z-20 animate-slide-in-left">
-          <div className="flex items-center gap-3 mb-10 translate-x-1">
-            <div className="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-200 rotate-3 transition-transform hover:rotate-0 duration-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth="2.5"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-            </div>
-            <span className="text-3xl font-extrabold tracking-tight text-emerald-950 uppercase">
-              TradingBook
-            </span>
-          </div>
+          <Link href="/" className="flex items-center gap-3 mb-10 translate-x-1 group w-fit">
+              <div className="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-200 rotate-3 transition-transform hover:rotate-0 duration-500 overflow-hidden">
+                <Image
+                  src="/icons/login/logo.svg"
+                  alt="TradingBook Logo"
+                  width={28}
+                  height={28}
+                  priority
+                />
+              </div>
+              <span className="text-3xl font-extrabold tracking-tight text-emerald-950 uppercase group-hover:text-emerald-700 transition-colors duration-300">
+                TradingBook
+              </span>
+            </Link>
 
           <div className="max-w-lg space-y-6 animate-fade-in-up delay-100">
             <h1 className="text-6xl font-black text-emerald-950 leading-[1.1] tracking-tighter">
@@ -65,24 +63,31 @@ export default function LoginPage() {
           </div>
 
           {/* Manual Floating Security Elements (SVGs) - Kept for extra premium feel */}
-          <div className="absolute top-[20%] right-[15%] w-14 h-14 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl flex items-center justify-center text-emerald-500 animate-float-slow z-30 border border-emerald-50">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
+          <div className="absolute top-[20%] right-[15%] w-14 h-14 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl flex items-center justify-center text-emerald-50 animate-float-slow z-30 border border-emerald-50 overflow-hidden">
+            <Image
+              src="/icons/login/lock.svg"
+              alt="Lock Icon"
+              width={28}
+              height={28}
+            />
           </div>
 
-            <div className="absolute bottom-[20%] left-[5%] w-14 h-14 bg-emerald-600 rounded-full shadow-emerald-200 shadow-2xl flex items-center justify-center text-white animate-float-reverse">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="3">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
+            <div className="absolute bottom-[20%] left-[5%] w-14 h-14 bg-emerald-600 rounded-full shadow-emerald-200 shadow-2xl flex items-center justify-center text-white animate-float-reverse overflow-hidden">
+              <Image
+                src="/icons/login/shield.svg"
+                alt="Shield Icon"
+                width={28}
+                height={28}
+              />
             </div>
 
-            <div className="absolute top-[40%] left-[-5%] w-12 h-12 bg-emerald-400 rounded-xl shadow-lg flex items-center justify-center text-white animate-float-slow">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
+            <div className="absolute top-[40%] left-[-5%] w-12 h-12 bg-emerald-400 rounded-xl shadow-lg flex items-center justify-center text-white animate-float-slow overflow-hidden">
+              <Image
+                src="/icons/login/user.svg"
+                alt="User Icon"
+                width={24}
+                height={24}
+              />
             </div>
           </div>
 
@@ -122,24 +127,25 @@ export default function LoginPage() {
               className="w-full h-16 flex items-center justify-center gap-4 bg-white border-[3px] border-emerald-100/60 rounded-2xl font-bold text-slate-700 transition-all duration-500 hover:border-emerald-500 hover:bg-white hover:scale-[1.02] shadow-lg shadow-emerald-100/30 hover:shadow-2xl hover:shadow-emerald-200/40 group"
             >
               <div className="relative w-7 h-7 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
-                <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
-                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
-                </svg>
+                <Image
+                  src="/icons/login/google.svg"
+                  alt="Google Icon"
+                  width={24}
+                  height={24}
+                />
               </div>
               <span className="text-xl tracking-tight group-hover:text-emerald-700">Tiếp tục bằng Google</span>
             </button>
           </div>
 
           <div className="p-6 bg-white/70 backdrop-blur-sm rounded-3xl border border-emerald-100/40 flex items-start gap-4 animate-fade-in-up delay-500 shadow-sm">
-            <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex-shrink-0 flex items-center justify-center text-emerald-500">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 9v4" />
-                <path d="M12 17h.01" />
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-              </svg>
+            <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex-shrink-0 flex items-center justify-center text-emerald-500 overflow-hidden">
+              <Image
+                src="/icons/login/alert.svg"
+                alt="Alert Icon"
+                width={22}
+                height={22}
+              />
             </div>
             <div className="space-y-1">
               <p className="font-bold text-slate-800 text-sm">Xác thực tập trung</p>

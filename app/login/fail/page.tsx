@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { Suspense } from "react";
+import Image from "next/image";
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
@@ -13,9 +14,10 @@ const beVietnamPro = Be_Vietnam_Pro({
 function LoginFailContent() {
   const searchParams = useSearchParams();
   const errorCode = searchParams.get("error") ?? "";
-  const errorMessage =
-    searchParams.get("message") ??
-    "Quá trình xác thực bằng Google không thành công. Vui lòng thử lại.";
+  const rawMessage = searchParams.get("message") ?? "";
+  const errorMessage = rawMessage
+    ? atob(rawMessage)
+    : "Quá trình xác thực bằng Google không thành công. Vui lòng thử lại.";
 
   return (
     <div
@@ -24,24 +26,20 @@ function LoginFailContent() {
       {/* Left Side: Branding */}
       <div className="hidden lg:flex lg:w-3/5 bg-white flex-col justify-between p-12 relative overflow-hidden h-full border-r border-slate-50">
         <div className="relative z-20 animate-slide-in-left">
-          <div className="flex items-center gap-3 mb-10 translate-x-1">
-            <div className="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-200 rotate-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth="2.5"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
+          <Link href="/" className="flex items-center gap-3 mb-10 translate-x-1 group w-fit">
+            <div className="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-200 rotate-3 transition-transform hover:rotate-0 duration-500 overflow-hidden">
+              <Image
+                src="/icons/login/logo.svg"
+                alt="TradingBook Logo"
+                width={28}
+                height={28}
+                priority
+              />
             </div>
-            <span className="text-3xl font-extrabold tracking-tight text-emerald-950 uppercase">
+            <span className="text-3xl font-extrabold tracking-tight text-emerald-950 uppercase group-hover:text-emerald-700 transition-colors duration-300">
               TradingBook
             </span>
-          </div>
+          </Link>
 
           <div className="max-w-lg space-y-6 animate-fade-in-up delay-100">
             <h1 className="text-5xl font-black text-emerald-950 leading-[1.1] tracking-tighter">
@@ -60,21 +58,13 @@ function LoginFailContent() {
           <div className="relative w-72 h-72 flex items-center justify-center">
             <div className="absolute inset-0 bg-red-50 rounded-full animate-pulse opacity-60" />
             <div className="absolute inset-8 bg-red-100/60 rounded-full" />
-            <div className="relative z-10 w-28 h-28 bg-red-500 rounded-full flex items-center justify-center shadow-2xl shadow-red-200">
-              <svg
-                viewBox="0 0 24 24"
-                width="56"
-                height="56"
-                fill="none"
-                stroke="white"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <line x1="15" y1="9" x2="9" y2="15" />
-                <line x1="9" y1="9" x2="15" y2="15" />
-              </svg>
+            <div className="relative z-10 w-28 h-28 bg-red-500 rounded-full flex items-center justify-center shadow-2xl shadow-red-200 overflow-hidden">
+              <Image
+                src="/icons/login/error.svg"
+                alt="Error Icon"
+                width={56}
+                height={56}
+              />
             </div>
             {errorCode && (
               <div className="absolute -top-4 -right-4 bg-slate-900 text-white text-xs font-mono font-bold px-3 py-1.5 rounded-full shadow-lg animate-float">
@@ -141,24 +131,22 @@ function LoginFailContent() {
 
           {/* Action */}
           <div className="space-y-4 animate-fade-in-up delay-200">
-            <Link
-              href="/login"
-              className="w-full h-16 flex items-center justify-center gap-3 bg-emerald-600 rounded-2xl font-bold text-white text-xl tracking-tight transition-all duration-500 hover:bg-emerald-700 hover:scale-[1.02] shadow-lg shadow-emerald-200/50 hover:shadow-2xl hover:shadow-emerald-300/40"
+            <button
+              onClick={() => { window.location.href = "http://localhost:3000/auth/google"; }}
+              className="w-full h-16 flex items-center justify-center gap-4 bg-white border-[3px] border-emerald-100/60 rounded-2xl font-bold text-slate-700 transition-all duration-500 hover:border-emerald-500 hover:bg-white hover:scale-[1.02] shadow-lg shadow-emerald-100/30 hover:shadow-2xl hover:shadow-emerald-200/40 group"
             >
-              <svg
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M19 12H5M12 5l-7 7 7 7" />
-              </svg>
-              Thử lại
-            </Link>
+              <div className="relative w-7 h-7 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
+                <Image
+                  src="/icons/login/google.svg"
+                  alt="Google Icon"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <span className="text-xl tracking-tight group-hover:text-emerald-700">
+                Tiếp tục bằng Google
+              </span>
+            </button>
 
             <p className="text-center text-sm text-slate-400 font-medium">
               Bạn cần hỗ trợ?{" "}
